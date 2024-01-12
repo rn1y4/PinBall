@@ -26,9 +26,6 @@ public class ScoreCalc : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
 
-        //スコアを表示
-        this.scoreText.GetComponent<Text> ().text = "SCORE: " + this.score;
-
         //衝突したオブジェクトのTagにより異なるスコアを加算
         if(other.gameObject.tag == "SmallStarTag")
         {
@@ -42,6 +39,9 @@ public class ScoreCalc : MonoBehaviour
         {
             this.score += 20;
         }
+
+    //スコアを表示
+    this.scoreText.GetComponent<Text> ().text = "SCORE: " + this.score;
 
     }
 
