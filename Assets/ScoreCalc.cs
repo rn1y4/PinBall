@@ -27,22 +27,25 @@ public class ScoreCalc : MonoBehaviour
     {
 
         //衝突したオブジェクトのTagにより異なるスコアを加算
-        if(other.gameObject.tag == "SmallStarTag")
+        if (other.gameObject.tag == "SmallStarTag")
         {
-            this.score += 5;
+            AddScore(5);
         }
-        else if(other.gameObject.tag == "LargeStarTag")
+        else if (other.gameObject.tag == "LargeStarTag")
         {
-            this.score += 10;
+            AddScore(10);
         }
-        else if(other.gameObject.tag == "SmallCloudTag" || other.gameObject.tag == "LargeCloudTag")
+        else if (other.gameObject.tag == "SmallCloudTag" || other.gameObject.tag == "LargeCloudTag")
         {
-            this.score += 20;
+            AddScore(20);
         }
+    }
 
-    //スコアを表示
-    this.scoreText.GetComponent<Text> ().text = "SCORE: " + this.score;
-
+    void AddScore(int amount)
+    {
+        this.score += amount;
+        //スコアを表示
+        this.scoreText.GetComponent<Text> ().text = this.score.ToString();
     }
 
 }
